@@ -12,5 +12,6 @@ int main() {
    string first_name;
    cin >> first_name;
    cout << "Hello, " << first_name << "!\n";
+   cout << "You did it";
    return 0;
 }
