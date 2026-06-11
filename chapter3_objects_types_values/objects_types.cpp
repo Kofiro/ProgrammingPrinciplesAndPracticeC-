@@ -12,11 +12,16 @@
 #include "std_lib_facilities.h"
 
 int main() {
+   // double x {2.7};
+    // int y {x}; error int might narrow; double x = 2.7 would have allowed this but with {} compiler gives warning
    string previous = " ";
    string current;
+   int number_of_words = 0;
    while (cin >> current) {
+    ++number_of_words;
     if(previous == current)
-        cout << "repeated word: " << current << '\n';
+        cout << "word number " << number_of_words 
+             << " repeated word: " << current << '\n';
     previous = current;
    }
    return 0;
