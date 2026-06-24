@@ -9,6 +9,7 @@
 #include "std_lib_facilities.h"
 
 int main() {
+
     cout << "Enter 3 integer values to be ordered\n";
     int first_val = 0;
     int second_val = 0;
