@@ -20,14 +20,30 @@ int main() {
 
     cout << "Please enter a currency followed by a unit (y, k or p, u for usdollar) for yen, kroner or pounds:\n";
     cin >> currency >> unit;
-    if(unit == 'y')
-        cout << currency << "yen to dollars " << yen_per_dollar * currency << " dollars\n";
-    else if(unit == 'k')
-        cout << currency << "kroner to dollars " << kroner_per_dolllar * currency << " dollars\n";
-    else if(unit == 'p')
-        cout << currency << "pounds to dollars " << pounds_per_dollar * currency << " dollars\n";
-    else 
-        cout << "Sorry don't know this unit\n";
+    // if(unit == 'y')
+    //     cout << currency << "yen to dollars " << yen_per_dollar * currency << " dollars\n";
+    // else if(unit == 'k')
+    //     cout << currency << "kroner to dollars " << kroner_per_dolllar * currency << " dollars\n";
+    // else if(unit == 'p')
+    //     cout << currency << "pounds to dollars " << pounds_per_dollar * currency << " dollars\n";
+    // else 
+    //     cout << "Sorry don't know this unit\n";
+
+    switch(unit)
+    {
+        case 'y':
+            cout << currency << "yen to dollars " << yen_per_dollar * currency << " dollars\n";
+            break;
+        case 'k':
+            cout << currency << "kroner to dollars " << kroner_per_dolllar * currency << " dollars\n";
+            break;
+        case 'p':
+            cout << currency << "pounds to dollars " << pounds_per_dollar * currency << " dollars\n";
+            break;
+        default:
+            cout << "Sorry don't know this unit\n";
+            break;
+    }
 
     return 0;
 }
