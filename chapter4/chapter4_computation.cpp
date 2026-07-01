@@ -10,6 +10,11 @@
 
 int main() {
 
-    cout << "Tekken is back" << "\n";
+    char a = 'a';
+    int b = 'a';
+   cout << "a is " << b << '\n';
+    cout << "char 'a'+ 1 = " << ('a' + 1) << '\n';
+    if(a == 5); // empty statement
+
     return 0;
 }
