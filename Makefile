@@ -1,5 +1,5 @@
 build:
-	g++ -I "C:\Users\kofir\Documents\C++\Practice\ProgrammingPrinciplesAndPracticeC++\res" "chapter4_vectors\chapter4_vectors.cpp" -o "bin\chapter4_vectors.exe"
+	g++ -I "C:\Users\kofir\Documents\C++\Practice\ProgrammingPrinciplesAndPracticeC++\res" "chapter4_drill\chapter4_drill.cpp" -o "bin\chapter4_drill.exe"
 
 run:
-	./bin/chapter4_vectors.exe
+	./bin/chapter4_drill.exe
