@@ -10,11 +10,17 @@
 
 int main() {
 
-    char a = 'a';
-    int b = 'a';
-   cout << "a is " << b << '\n';
-    cout << "char 'a'+ 1 = " << ('a' + 1) << '\n';
-    if(a == 5); // empty statement
+//     char a = 'a';
+//     int b = 'a';
+//    cout << "a is " << b << '\n';
+//     cout << "char 'a'+ 1 = " << ('a' + 1) << '\n';
+//     if(a == 5); // empty statement
+    constexpr int max = 100;
+
+    int c1 = max + 2;
+    cout << "max c1 is " << c1;
+
+    
 
     return 0;
 }

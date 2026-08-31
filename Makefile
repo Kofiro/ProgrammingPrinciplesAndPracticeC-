@@ -1,5 +1,5 @@
 build:
-	g++ -I "C:\Users\kofir\Documents\C++\Practice\ProgrammingPrinciplesAndPracticeC++\res" "chapter3_objects_types_values\objects_types.cpp" -o "bin\objects_types.exe"
+	g++ -I "C:\Users\kofir\Documents\C++\Practice\ProgrammingPrinciplesAndPracticeC++\res" "chapter4_vectors\chapter4_vectors.cpp" -o "bin\chapter4_vectors.exe"
 
 run:
-	./bin/objects_types.exe
+	./bin/chapter4_vectors.exe
