@@ -6,7 +6,7 @@ int main() {
 
     
     double num;
-    //vector<double> nums;
+    vector<double> nums;
     //double smaller_num = 0.0;
     //double larger_num = 0.0;
     double smallest_sofar = 100000.0;
@@ -16,9 +16,7 @@ int main() {
     double sum = 0.0;
     while(cin >> num >> unit) {
         // Drill 1.
-        if (num == '|') {
-            
-            
+        if (num == '|') {    
         
             break;
         }
@@ -27,14 +25,30 @@ int main() {
         cout << "Your entered " << num << unit << "\n";
         if(unit == "cm") {
             cout << "num " << num  << unit << " == " << (num / 100) << "m" << '\n';
+            // convert to m and add to vector
+            double cmInMeters = num / 100;
+            nums.push_back(cmInMeters);
         } else if (unit == "m") {
             cout << "num " << num  << unit << " == " << (num * 100) << "cm" << '\n';
+            // add m to vector
+            nums.push_back(num);
         } else if (unit == "in") {
             cout << "num " << num  << unit << " == " << (num * 2.54) << "cm" << '\n';
+
+            // convert to cm then to m
+            double inToCm = num * 2.54;
+            double cmToM = inToCm / 100;
+            nums.push_back(cmToM);
         } else if(unit == "ft") {
              cout << "num " << num  << unit << " == " << (num * 12) << "in" << '\n';
+
+             double ftToIn = num * 12;
+             double inToCm = ftToIn * 2.54;
+             double cmToM = inToCm / 100;
+             nums.push_back(cmToM);
         }
 
+        // Drill 8.
         if(unit == "y" || unit == "yard" || unit == "meter" || unit == "km" || unit == "gallons" || unit == "") {
             cout << "Does not accept these as proper unit representations" << '\n';
         }
@@ -55,6 +69,19 @@ int main() {
             //cout << "Num " << num << " is largest so far" << '\n';
         }
         
+        // Drill 10. add all values entered to the vector into meters
+        cout << "all values in meters are the following: \n";
+        for(double n : nums) {
+            cout << "n" << n << '\n';
+        }
+
+        // Drill 11. Sort values
+        sort(nums);
+        cout << "values after sorting: \n";
+        for(double n: nums) {
+            cout  << n << '\n';
+        }
+
         // Dril 1. - 5.
         // nums.push_back(num);
 
