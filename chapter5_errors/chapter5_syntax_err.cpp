@@ -13,36 +13,44 @@ char ask_user(string question) {
 }
 
 int area(int length, int width) {
-    if(length <= 0 || width <= 0) error("non-positive area() argument");
+    if(length <= 0 || width <= 0) return -1; //error("non-positive area() argument");
     return length * width;
 }
 
 int framed_area(int x, int y) {
     constexpr int frame_width = 2;
-    if(x - frame_width <= 0|| y - frame_width <= 0)
-        error("non-postive area() argument aclled by framed_area()");
+    if(x - frame_width <= 0|| y - frame_width <= 0) return -1;
+        //error("non-postive area() argument aclled by framed_area()");
     return area(x - frame_width, y - frame_width);
+}
+
+int f(int x, int y, int z) {
+
+    
+    int area1 = area(x, y);
+    if(area1 <= 0) error("non-positve area");
+    cout << "area1 is " << area1 << " \n";
+    int area2 = framed_area(1, z);
+    cout << "area2 is " << area2 << "\n";
+    
+
+    int area3 = framed_area(y, z);
+    cout << "area3 is " << area3 << "\n";
+    double ratio = double(area1)/area3;
+    cout << "ratio is " << ratio << "\n";
+    
+
+    return 0;
 }
 
 int main() {
 
-    int x = -1;
-    int y = 2;
+    int x = 3;
+    int y = 4;
     int z = 4;
 
-    if(x <= 0) error("non-positive x");
-    if(y <= 0) error("non-positive y");
+    f(x, y, z);
 
-    int area1 = area(x, y);
-
-    if(z <= 2)
-        error("non-positive 2nd area() argument called by framed_area()");
-    int area2 = framed_area(1, z);
-    if(y <= 2||z <= 2)
-        error("non-positive area() argument called by framed_area()");
-
-    int area3 = framed_area(y, z);
-    double ratio = double(area1)/area3;
 
     // int s1 = area(7, 2);
     // int s2 = area(7, 2);
