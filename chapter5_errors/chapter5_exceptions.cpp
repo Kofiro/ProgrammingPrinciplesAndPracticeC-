@@ -19,19 +19,53 @@ int framed_area(int x, int y) {
     return area(x - frame_width, y - frame_width);
 }
 
-int main() {
-    try {
-        int x = -1;
-        int y = 2;
-        int z = 4;
+// void error(string s) {
+//     throw runtime_error(s);
+// }
 
-        int area1 = area(x,y);
-        int area2 = framed_area(1, z);
-        int area3 = framed_area(y, z);
-        double ratio = area1/area3;
+// void error(string s1, string s2) {
+//     throw runtime_error(s1 + s2);
+// }
+
+int main() {
+    // try {
+    //     int x = -1;
+    //     int y = 2;
+    //     int z = 4;
+
+    //     int area1 = area(x,y);
+    //     int area2 = framed_area(1, z);
+    //     int area3 = framed_area(y, z);
+    //     double ratio = area1/area3;
+    // }
+    // catch(Bad_area) {
+    //     cout << "Oops! bad arguements to area()\n";
+    // }
+    try {
+        vector<int> v;
+        for(int x; cin >> x;)
+            v.push_back(x);
+        
+        for(int i = 0; i <= v.size();++i) 
+            cout << "v[" << i << "] == " << v[i] << '\n';
+
+       
+        
+        return 0;
+
     }
-    catch(Bad_area) {
-        cout << "Oops! bad arguements to area()\n";
+    catch(out_of_range) {
+        cerr << "Oops! Range error\n";
     }
-    return 0;
+    catch(exception& e) {
+        cerr << "runtime error: " << e.what() << '\n';
+        keep_window_open();
+        return 1;   // indicates failure
+    }
+    catch(...) {
+        cout << "Exception: something went wrong. Unknown exception!\n";
+        keep_window_open();
+        return 2;
+    }
+    //return 0;
 }
