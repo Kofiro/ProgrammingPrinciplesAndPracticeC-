@@ -1,5 +1,5 @@
 build:
-	g++ -I "C:\Users\kofir\Documents\C++\Practice\ProgrammingPrinciplesAndPracticeC++\res" "chapter4_drill\chapter4_drill.cpp" -o "bin\chapter4_drill.exe"
+	g++ -I "C:\Users\kofir\Documents\C++\Practice\ProgrammingPrinciplesAndPracticeC++\res" "chapter5_errors\chapter5_syntax_err.cpp" -o "bin\chapter5_syntax_err.exe"
 
 run:
-	./bin/chapter4_drill.exe
+	./bin/chapter5_syntax_err.exe

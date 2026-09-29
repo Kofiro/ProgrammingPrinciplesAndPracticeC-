@@ -57,7 +57,6 @@ int main() {
         count += 1;
         sum += num;
 
-
         // Drill 6.
         if(num < smallest_sofar) {
             smallest_sofar = num;
