@@ -1,5 +1,5 @@
 build:
-	g++ -I "C:\Users\kofir\Documents\C++\Practice\ProgrammingPrinciplesAndPracticeC++\res" "chapter5_errors\chapter5_logic_err.cpp" -o "bin\chapter5_logic_err.exe"
+	g++ -I "C:\Users\kofir\Documents\C++\Practice\ProgrammingPrinciplesAndPracticeC++\res" "chapter5_errors\chapter5_drill.cpp" -o "bin\chapter5_drill.exe"
 
 run:
-	./bin/chapter5_logic_err.exe
+	./bin/chapter5_drill.exe
