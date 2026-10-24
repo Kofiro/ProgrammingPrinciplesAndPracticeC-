@@ -1,5 +1,5 @@
 build:
-	g++ -I "C:\Users\kofir\Documents\C++\Practice\ProgrammingPrinciplesAndPracticeC++\res" "chapter5_errors\chapter5_drill.cpp" -o "bin\chapter5_drill.exe"
+	g++ -I "C:\Users\kofir\Documents\C++\Practice\ProgrammingPrinciplesAndPracticeC++\res" "chapter5_errors\chapter5_exercises.cpp" -o "bin\chapter5_exercises.exe"
 
 run:
-	./bin/chapter5_drill.exe
+	./bin/chapter5_exercises.exe
