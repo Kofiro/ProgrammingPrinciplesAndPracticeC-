@@ -88,17 +88,26 @@ double fibonacci(int id, int max_num) {
 
 int generate_num() {
 
-    return ((rand() % 9) + 1);
+    //return ((rand() % 9) + 1);
+    return randint(10);
 }
 
 
-void bulls_and_cow() {
-    srand(time(NULL));
+void bulls_and_cow(bool shouldloop = false) {
+    //srand(time(NULL));
 
-    vector<int> numbers;
+    
+    // 12. ask the user to get a random number to be used as a seed 
+    int random_num;
+    cout << "Enter any number\n";
+    cin >> random_num;
+    seed_randint(random_num);
+
+    vector<int> numbers;    // container for four random digits
 
     int num_count = 4;
     
+    // generate 4 digits randomly
     for(int i = 0; i < num_count;++i) {
         numbers.push_back(generate_num());
     }
@@ -108,19 +117,21 @@ void bulls_and_cow() {
     //     cout << x;
 
     int digit_count; // to keep track of digits
+
+    // we want digits to not repeat, so this removes duplicates
     for(int i = 0; i < num_count;++i) {
         digit_count = 0;
-        for(int j = 0; j < num_count;++j) {
+        for(int j = 0; j < num_count;++j) { // second index to "scroll" through digits to check for duplicates
             if(numbers[i] == numbers[j]) {
-                digit_count++;
+                digit_count++;  // increment count when we have the same digit (scrolled through the digits)
 
                 // if we have more of this digit
                 // generate a new digit
                 if(digit_count > 1) {
                     numbers[j] = generate_num();
                     
-                    digit_count--;
-                    i = j = 0;
+                    digit_count--;  // reduce digit count since we are generating a new digit
+                    i = j = 0;  // reset incremental counts to start the duplication removal process all over again.
                 }
             }
         }
@@ -145,7 +156,7 @@ void bulls_and_cow() {
         for(int num; cin >> num;) {
             guesses.push_back(num);
             guess_count--;
-            if(guess_count == 0) {
+            if(guess_count == 0) {  // if guess count is zero, we have guessed all four digits
                 bull_count = cow_count = 0;
                 cout << "we have four numbers\n";
                 for(int i = 0; i < num_count; ++i) {
@@ -160,15 +171,17 @@ void bulls_and_cow() {
                     }
                 }
                 num_of_tries++;
-                if(num_of_tries > 10) {
+                
+                guesses.clear();
+                cout << bull_count << " bull and " << cow_count << " cow\n";
+                if(num_of_tries > 15) {
                     cout << "You were trying to guess the number\n";
                     for(int x : numbers)
                         cout << x;
 
                     cout << "\ngoodluck\n";
+                    break;
                 }
-                guesses.clear();
-                cout << bull_count << " bull and " << cow_count << " cow\n";
                 break;
             }
         }
@@ -207,8 +220,23 @@ int main() {
     //     cout << fibonacci(i, max_count) << endl;
     // }
 
-    //12.
-    bulls_and_cow();
+    //12. add loop
+    bool shouldloop = true;
+
+    while(shouldloop) {
+        bulls_and_cow();
+        char answer;
+        cout << "\nWould you play again? ('y' for yes, 'n' for no)\n";
+        cin >> answer;
+
+        if(answer == 'y'){
+            // do nothing and loop again
+        } else if(answer == 'n') {
+            shouldloop = false; // exit from the loop
+        } else {
+            shouldloop = false; // exit from the loop
+        }
+    }
 
     return 0;
 }
