@@ -89,7 +89,7 @@ double fibonacci(int id, int max_num) {
 int generate_num() {
 
     //return ((rand() % 9) + 1);
-    return randint(10);
+    return randint(10); // 13. using randint()
 }
 
 
@@ -97,7 +97,7 @@ void bulls_and_cow(bool shouldloop = false) {
     //srand(time(NULL));
 
     
-    // 12. ask the user to get a random number to be used as a seed 
+    // 13. ask the user to get a random number to be used as a seed 
     int random_num;
     cout << "Enter any number\n";
     cin >> random_num;
@@ -199,6 +199,60 @@ void bulls_and_cow(bool shouldloop = false) {
 }
 
 
+// 14.Read (day-of-the-week) pairs
+void readpairs() {
+    cout << "Enter input\n";
+    vector<int> day_values;
+    vector<int> rejected_values;
+
+    for(string day,num; cin >> day >> num;){
+
+        if(day == "|" || num == "|") {
+            break;
+        }
+
+        stringstream ss;
+        ss << num;
+        int number = 0;
+        ss >> number;
+
+        if(day == "Mon" || "Monday" || "monday") {
+            day_values.push_back(number);
+        } else if(day == "Tue" || "Tuesday" || "tuesday") {
+            day_values.push_back(number);
+            
+        } else if(day == "Wed" || "Wednesday" || "wednesday") {
+            day_values.push_back(number);
+            
+        } else if(day == "Thu" || "Thursday" || "thursday") { 
+            day_values.push_back(number);
+            
+        } else if(day == "Fri" || "Friday" || "friday") {
+            day_values.push_back(number);
+            
+        } else if(day == "Sat" || "Saturday" || "saturday") {
+            day_values.push_back(number);
+            
+        } else if(day == "Sun" || "Sunday" || "sunday") { 
+            day_values.push_back(number);
+
+        } else {
+            rejected_values.push_back(number);
+        }
+
+        cout << "Entered day " << day << " and the number " << number << "\n";
+    }
+
+
+    cout << "Sum of values for each day of the week\n";
+    int sum = 0;
+    for(int x: day_values) {
+        sum += x;
+    }
+
+    cout << "Sum of values in each is " << sum << " and number of rejected values is " << rejected_values.size() << "\n";
+}
+
 int main() {
 
 
@@ -220,23 +274,27 @@ int main() {
     //     cout << fibonacci(i, max_count) << endl;
     // }
 
-    //12. add loop
-    bool shouldloop = true;
+    //12 & 13. add loop
+    // bool shouldloop = true;
 
-    while(shouldloop) {
-        bulls_and_cow();
-        char answer;
-        cout << "\nWould you play again? ('y' for yes, 'n' for no)\n";
-        cin >> answer;
+    // while(shouldloop) {
+    //     bulls_and_cow();
+    //     char answer;
+    //     cout << "\nWould you play again? ('y' for yes, 'n' for no)\n";
+    //     cin >> answer;
 
-        if(answer == 'y'){
-            // do nothing and loop again
-        } else if(answer == 'n') {
-            shouldloop = false; // exit from the loop
-        } else {
-            shouldloop = false; // exit from the loop
-        }
-    }
+    //     if(answer == 'y'){
+    //         // do nothing and loop again
+    //     } else if(answer == 'n') {
+    //         shouldloop = false; // exit from the loop
+    //     } else {
+    //         shouldloop = false; // exit from the loop
+    //     }
+    // }
+
+    // 14.
+    readpairs();
+
 
     return 0;
 }

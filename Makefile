@@ -1,5 +1,5 @@
 build:
-	g++ -I "C:\Users\kofir\Documents\C++\Practice\ProgrammingPrinciplesAndPracticeC++\res" "chapter5_errors\chapter5_exercises.cpp" -o "bin\chapter5_exercises.exe"
+	g++ -I "C:\Users\kofir\Documents\C++\Practice\ProgrammingPrinciplesAndPracticeC++\res" "chapter6\simple_calculator.cpp" -o "bin\chapter6_simple_calc.exe"
 
 run:
-	./bin/chapter5_exercises.exe
+	./bin/chapter6_simple_calc.exe
