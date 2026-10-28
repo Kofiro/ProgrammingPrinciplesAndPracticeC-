@@ -1,6 +1,16 @@
 // chapter 6; Writing a program
 // simple calculator
 
+
+// The grammer is used when parsing the calculators input
+// a token is a sequence of characters 
+// parsing is reading a stream of tokens in accordance to a grammar (done by a parser or a syntax analyzer)
+// Grammar for our simple calculator is below
+// Expression -> Term; Expression '+' Term; Expression '-' Term;
+// Term -> Primary; Term * Primary; Term / Primary; Term % Primary;
+// Primary -> Number; "(" Expression ")";
+// Number -> a floating point literal?
+
 #include "std_lib_facilities.h"
 
 // user-defined type
@@ -87,6 +97,7 @@ double primary() {
 }
 
 int main() {
+    // old version
     cout << "Please enter expression (we can handle +,-,*,and /)\n";
     cout << "add an x to end expression (e.g., 1+2*3x): ";
     int lval = 0;
