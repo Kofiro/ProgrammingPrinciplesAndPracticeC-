@@ -89,23 +89,32 @@ int main() {
         double val = 0;
         while(cin) {
             cout << "> ";
-            //cout << "=" << expression() << '\n';
             Token t = ts.get();
-            if(t.kind == 'x') break;    // 'q' for quit
-            if(t.kind == '=')   // ';' for "print now"
-                cout << "= " << val << '\n';
-            else
-                ts.putback(t);
-            val = expression();
+             while(t.kind == '=') t = ts.get();   // ';' for "print now"
+               
+            if(t.kind == 'x') {    // 'q' for quit
+                keep_window_open();
+                return 0;
+            }
+            ts.putback(t);
+            cout << "= " << expression() << '\n';
         }
         keep_window_open();
-    } catch(exception& e) {
+    } catch(runtime_error& e) {
         cerr << e.what() << '\n';
-        keep_window_open();
+        keep_window_open("~~");
+        // cout << "Please enter the character ~ to close the window\n";
+        // for(char ch; cin >> ch;)
+        //     if(ch== '~') return 1;
+        return 1;
+    } 
+    catch(exception& e) {
+        cerr << e.what() << '\n';
+        keep_window_open("~~");
         return 1;
     } catch(...) {
         cerr << "exception\n";
-        keep_window_open();
+        keep_window_open("~~");
         return 2;
     }
     
@@ -158,6 +167,10 @@ double primary() {
         
         case '8':       // we use '8' to represent a number
             return t.value; // return the number's value
+        case '-':
+            return - primary();
+        case '+':
+            return primary();
         default:
             error("primary expected");
     }
